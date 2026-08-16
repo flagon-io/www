@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
 import { Frame } from "@/components/frame";
+import { HexField } from "@/components/hex-field";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
 
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     <Frame>
       <main className="relative flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+        <HexField />
+
         {/* status pill */}
         <div
           className="rise inline-flex items-center gap-2 rounded-full border border-hairline bg-white/3 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-muted"

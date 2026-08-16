@@ -1,19 +1,15 @@
 import type { ReactNode } from "react";
-import { HexField } from "@/components/hex-field";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 /**
- * Shared page shell: full-bleed backdrop plus a centered, hairline-railed
- * content column. Header and footer are fixed; pages provide their own <main>.
- * Crosshair marks live on the header/footer dividers (inset from the viewport
- * edges) so nothing overflows the page.
+ * Shared page shell: a centered, hairline-railed content column with a
+ * full-bleed header and footer. Pages provide their own <main> and any
+ * page-specific backdrop (e.g. the homepage hero's HexField).
  */
 export function Frame({ children }: { children: ReactNode }) {
   return (
     <div className="relative flex flex-1 flex-col">
-      <HexField />
-
       {/* full-bleed topbar */}
       <SiteHeader />
 
