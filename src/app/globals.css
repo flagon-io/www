@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/*
+ * Flagon coming soon
+ * Brand: teal #14b8a6 mark on near-black #09090b, Geist typeface.
+ * Aesthetic: crisp hairline rules and a fine technical grid (Vercel / Cloudflare).
+ * This page is intentionally dark-only.
+ */
+
+@theme {
+  --color-background: #09090b;
+  --color-foreground: #ededed;
+  --color-muted: #a1a1aa;
+  --color-subtle: #71717a;
+  --color-brand: #14b8a6;
+  --color-brand-bright: #2dd4bf;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: dark;
+  background: var(--color-background);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.28);
+  color: #f0fdfa;
+}
+
+/* Hexagonal lattice motion (HexField). The shape is the motif; the pulse is a
+ * bonus we only spend a desktop's frame budget on. */
+@keyframes hex-cell-pulse {
+  0%,
+  88%,
+  100% {
+    stroke-opacity: 0.1;
+  }
+  92% {
+    stroke-opacity: 0.34;
+  }
+}
+
+@keyframes hex-node-breathe {
+  0%,
+  100% {
+    stroke-opacity: 0.24;
+    fill-opacity: 0.04;
+  }
+  50% {
+    stroke-opacity: 0.55;
+    fill-opacity: 0.12;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hex-cell {
+    animation: hex-cell-pulse 7s linear infinite;
+  }
+  .hex-node {
+    animation: hex-node-breathe 6s ease-in-out infinite;
+  }
+}
+
+/* Entrance animation. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Status dot pulse. */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.ping-slow {
+  animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .ping-slow,
+  .hex-cell,
+  .hex-node {
+    animation: none !important;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Long-form legal copy. */
+.legal-prose {
+  color: var(--color-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.legal-prose h2 {
+  color: var(--color-foreground);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.legal-prose p {
+  margin-bottom: 1rem;
+}
+.legal-prose ul {
+  margin: 0 0 1rem 1.25rem;
+  list-style: disc;
+}
+.legal-prose li {
+  margin-bottom: 0.5rem;
+}
+.legal-prose a {
+  color: var(--color-brand-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-prose strong {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+

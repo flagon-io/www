@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- The Flagon tankard mark. Geometry mirrors @flagon/design logo-geometry.json. -->
+  <g fill="none" stroke="#14b8a6" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="butt">
+    <path d="M18 22 L36 22 L39 50 L15 50 Z" />
+    <path d="M19 22 L21 15 L33 15 L35 22 Z" />
+    <path d="M37 28 L46 29 L49 34 L49 39 L46 44 L38 43" />
+  </g>
+</svg>
