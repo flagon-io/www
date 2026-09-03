@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Plus } from "@/components/plus";
-import { site } from "@/lib/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -23,30 +22,10 @@ export function SiteFooter() {
         </Link>
       </div>
 
-      {/* center: incorporation */}
-      <p className="order-1 font-mono text-xs text-subtle sm:absolute sm:left-1/2 sm:order-2 sm:-translate-x-1/2">
+      {/* right: incorporation */}
+      <p className="order-1 font-mono text-xs text-subtle sm:order-3">
         © {year} Flagon, Inc.
       </p>
-
-      {/* right: social */}
-      <div className="order-3 flex items-center gap-5 font-mono text-[11px] uppercase tracking-widest">
-        <a
-          href={site.links.discord}
-          target="_blank"
-          rel="noreferrer"
-          className="text-subtle transition hover:text-foreground"
-        >
-          Discord
-        </a>
-        <a
-          href={site.links.github}
-          target="_blank"
-          rel="noreferrer"
-          className="text-subtle transition hover:text-foreground"
-        >
-          GitHub
-        </a>
-      </div>
 
       {/* divider-end marks */}
       <Plus className="absolute left-0 top-0 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 text-white/15" />

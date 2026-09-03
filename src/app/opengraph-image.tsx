@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Flagon: Stop building your platform. Start shipping on it.";
+export const alt = "Flagon: Something new is on tap. Coming soon.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
               textTransform: "uppercase",
             }}
           >
-            Early access · Coming soon
+            Rebuilding · Coming soon
           </div>
           <div
             style={{
@@ -59,13 +59,13 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Stop building your platform. Start shipping on it.
+            Something new is on tap.
           </div>
         </div>
 
         {/* footer */}
         <div style={{ display: "flex", fontSize: 28, color: "#a1a1aa" }}>
-          The unified developer platform · flagon.io
+          Being rebuilt from the ground up · flagon.io
         </div>
       </div>
     ),
