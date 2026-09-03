@@ -72,6 +72,73 @@ body {
   }
 }
 
+/* Hero centerpiece: the tankard filling (FlagonPour). Transforms only, so the
+ * browser can composite it cheaply. Nested groups each own one transform. */
+@keyframes pour-fill {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes pour-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.8px);
+  }
+}
+@keyframes pour-wave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-30px);
+  }
+}
+@keyframes pour-wave-rev {
+  from {
+    transform: translateX(-30px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes pour-bubble {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+}
+
+/* `both` holds the empty start-state before the fill begins, so there is no
+ * filled-then-empty flash on first paint. */
+.pour-rise {
+  animation: pour-fill 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.pour-bob {
+  animation: pour-bob 6s ease-in-out infinite;
+}
+.pour-wave-back {
+  animation: pour-wave 9s linear infinite;
+}
+.pour-wave-front {
+  animation: pour-wave-rev 6.5s linear infinite;
+}
+.pour-bubble {
+  animation: pour-bubble 5s ease-in infinite;
+}
+
 /* Entrance animation. */
 @keyframes rise {
   from {
@@ -110,7 +177,12 @@ body {
   .rise,
   .ping-slow,
   .hex-cell,
-  .hex-node {
+  .hex-node,
+  .pour-rise,
+  .pour-bob,
+  .pour-wave-back,
+  .pour-wave-front,
+  .pour-bubble {
     animation: none !important;
   }
   .rise {

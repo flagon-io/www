@@ -1,9 +1,16 @@
 version: 2
 
+# PAUSED (2026-09) — routine version-update PRs are turned off while the app/api
+# are offline and the stack is being reworked. `open-pull-requests-limit: 0`
+# stops scheduled bumps but leaves Dependabot *security* updates on, so critical
+# advisories still open PRs. To resume, restore the limits (10 for npm, drop the
+# 0 on github-actions) and Dependabot picks back up on the next weekly run.
+
 updates:
   # The actions our CI (.github/workflows/ci.yml) pins by major — keep them current.
   - package-ecosystem: github-actions
     directory: "/"
+    open-pull-requests-limit: 0 # paused — see note above
     schedule:
       interval: weekly
       day: monday
@@ -20,7 +27,7 @@ updates:
     schedule:
       interval: weekly
       day: monday
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 0 # paused — see note above (was 10)
     # Bump the range in package.json too (e.g. ^3.9 -> ^3.10), not just the lock.
     versioning-strategy: increase
     commit-message:

@@ -1,6 +1,6 @@
 import { Frame } from "@/components/frame";
 import { HexField } from "@/components/hex-field";
-import { Logo } from "@/components/logo";
+import { FlagonPour } from "@/components/flagon-pour";
 
 export default function Home() {
   return (
@@ -22,17 +22,9 @@ export default function Home() {
           Coming soon
         </div>
 
-        {/* mark */}
-        <div className="rise relative mt-10" style={{ animationDelay: "60ms" }}>
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 blur-2xl"
-            style={{
-              background:
-                "radial-gradient(circle at center, rgba(20,184,166,0.4), transparent 70%)",
-            }}
-          />
-          <Logo className="h-14 w-14 text-brand-bright" />
+        {/* centerpiece: the tankard, filling */}
+        <div className="rise mt-10" style={{ animationDelay: "60ms" }}>
+          <FlagonPour className="relative h-40 w-40 sm:h-48 sm:w-48" />
         </div>
 
         {/* headline */}
@@ -57,12 +49,14 @@ export default function Home() {
         </p>
 
         {/* sign-off */}
-        <p
-          className="rise mt-10 font-mono text-[11px] uppercase tracking-widest text-subtle"
+        <div
+          className="rise mt-12 flex items-center gap-4 font-mono text-[11px] uppercase tracking-widest text-subtle"
           style={{ animationDelay: "240ms" }}
         >
+          <span className="h-px w-8 bg-linear-to-r from-transparent to-hairline" />
           Check back soon
-        </p>
+          <span className="h-px w-8 bg-linear-to-l from-transparent to-hairline" />
+        </div>
       </main>
     </Frame>
   );
